@@ -28,22 +28,21 @@ class SourceFile:
     except Exception:
       print("Caught IOException: " + Exception)
       return ''
-"""
-def inspectChar(nthChar):
-# nthChar must be >= 1.
-  return 1
+      
+  def inspectChar(self, nthChar):
+  # nthChar must be >= 1.
+    if nthChar < 1:
+      return 1
 
-  try:
-    reader.mark(nthChar)
-    while nthChar != 0:
-          c = reader.read()
-          nthChar -= 1
-    reader.reset()
-    if c == -1: 
-        c = eof
-    return str(c)
-  except (IOException e):
-    print("Caught IOException: " + e.getMessage())
-    return eof
-
-"""
+    try:
+      self.reader.mark(nthChar)
+      while nthChar != 0:
+            c = self.reader.read()
+            nthChar -= 1
+      self.reader.reset()
+      if c == -1: 
+          c = ''
+      return str(c)
+    except:
+      print("Caught IOException")
+      return ''
