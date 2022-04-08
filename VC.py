@@ -5,12 +5,12 @@ from Token import Token
 
 # scanner = Scanner()
 # reporter = ErrorReporter()
-# currentToken = Token()
+
 # inputFilename = String()
 
 if __name__=="__main__":
     # inputFilename = args[0]
-
+    currentToken = Token()
     inputFilename = "sample/string.vc"
     # inputFilename = "src/VC/Scanner/comment2.vc"
     # inputFilename = "src/VC/Scanner/comment3.vc"

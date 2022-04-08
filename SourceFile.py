@@ -5,6 +5,7 @@ class SourceFile:
   # reader = LineNumberReader()
 
   def __init__(self, filename):
+    self.EOF = '\u0000'
     if os.path.exists(filename):
       self.reader = open(filename, 'r')
     else:

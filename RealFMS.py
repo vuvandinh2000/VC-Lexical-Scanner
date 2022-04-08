@@ -1,10 +1,8 @@
-import numpy as np
-
 class RealFMS:
   def __init__(self):
     self.ASCII_NUM = 128
     self.STATE_NUM = 7
-    self.fmsTable = np.ones((self.STATE_NUM, self.ASCII_NUM))
+    self.fmsTable = [{} for __ in range(self.STATE_NUM)]
     self.STATE_FAILURE = -1
     self.accept = [False, True, True, False, False, False, True]
     self.realState = 0
@@ -44,8 +42,7 @@ class RealFMS:
 
   def initStateByDigit(self, previousState, nextState):
     for i in range(10):
-      self.fmsTable[previousState]['0' + i] = nextState 
-  
+      self.fmsTable[previousState]['0'+str(i)] = nextState 
   def isRealSet(currentChar):
     if currentChar.isdigit():
       return True

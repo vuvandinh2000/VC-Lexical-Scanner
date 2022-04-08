@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    fileWriter = open("D:\Study\HK8\Compiler\BTL\VC-Scanner/test_res/testASCII.vc", 'w+')
+    fileWriter = open("test_res/testASCII.vc", 'w+')
     cbuf = ''
     cbuf += chr(7)
     cbuf += chr(66)

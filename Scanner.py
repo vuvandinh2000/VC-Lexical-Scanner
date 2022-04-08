@@ -1,5 +1,4 @@
-from tokenize import Token
-import numpy as np
+from Token import Token
 from RealFMS import RealFMS
 from SourcePosition import SourcePosition
 
@@ -12,6 +11,7 @@ class Scanner:
 
   def __init__(self, source, reporter):
       self.sourceFile = source
+      self.sourcePos = SourcePosition()
       self.debug = False
       self.errorReporter = reporter
       self.currentSpelling = ''
@@ -25,7 +25,7 @@ class Scanner:
       self.debug = True
 
   def accept(self):
-      self.currentSpelling.append('$' if self.currentChar == self.SourceFile.eof else self.currentChar)
+      self.currentSpelling += '$' if self.currentChar == self.sourceFile.EOF else self.currentChar
       self.currentChar = self.sourceFile.getNextChar()
       self.sourcePos.charFinish = self.columnCounter
       self.sourcePos.lineFinish = self.lineCounter
@@ -296,7 +296,7 @@ class Scanner:
 
 
   def skipSpaceAndComments(self):
-    if currentChar == '/' and self.inspectChar(1) == '*':
+    if self.currentChar == '/' and self.inspectChar(1) == '*':
       self.terminatedColumnStart = columnCounter
       tempChar1 = chr(0)
       tempChar2 = chr(0)
