@@ -1,5 +1,7 @@
 from SourceFile import SourceFile
 from ErrorReporter import ErrorReporter
+from Scanner import Scanner
+from Token import Token
 
 # scanner = Scanner()
 # reporter = ErrorReporter()
@@ -37,8 +39,8 @@ if __name__=="__main__":
     print(str(source.reader.read()))
 
     reporter = ErrorReporter()
-    # scanner  = Scanner(source, reporter)
-    # scanner.enableDebugging()
+    scanner  = Scanner(source, reporter)
+    scanner.enableDebugging()
         
-    # while currentToken.kind != Token.EOF:
-    #     currentToken = scanner.getToken()
+    while currentToken.kind != Token.EOF:
+        currentToken = scanner.getToken()
