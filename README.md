@@ -3,6 +3,7 @@
 FMS: Finity Machine State
 
 | Student ID | Name |
+| :---: | :---: |
 | 18020308 | Vu Van Dinh |
 | 18020532 | Nguyen Huy Hoan |
 | 18020000 | Nguyen Van Huy |
