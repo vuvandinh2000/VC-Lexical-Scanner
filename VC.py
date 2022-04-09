@@ -43,4 +43,5 @@ if __name__=="__main__":
     scanner.enableDebugging()
         
     while currentToken.kind != Token.EOF:
+        print('currentToken.kind', currentToken.kind)
         currentToken = scanner.getToken()

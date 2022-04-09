@@ -2,6 +2,8 @@ from Token import Token
 from RealFMS import RealFMS
 from SourcePosition import SourcePosition
 
+# Token = Token()
+print(Token.ID)
 class Scanner:
   COMMENT = 0
   SPACE = 1
@@ -10,6 +12,7 @@ class Scanner:
   TABSIZE = 8
 
   def __init__(self, source, reporter):
+      self.Token = Token()
       self.sourceFile = source
       self.sourcePos = SourcePosition()
       self.debug = False
@@ -116,7 +119,7 @@ class Scanner:
     if self.currentChar == '"':
       stringLineStart = self.lineCounter
       stringColumnStart = self.columnCounter
-      # ignore(1)
+      self.ignore(1)
       while self.currentChar != '"':
         if self.currentChar == self.SourceFile.eof or self.currentChar == '\n':
           self.errorReporter.reportError(
@@ -137,7 +140,7 @@ class Scanner:
             self.accept()
           else:
             self.currentSpelling.append(legal)
-            # ignore(2)
+            self.ignore(2)
           continue
         
         self.accept()
@@ -338,18 +341,16 @@ class Scanner:
         
       
     
-    # if currentChar == '/' and self.inspectChar(1) == '/':
-    #   # ignore(2)
-    #   while currentChar != '\n':
-    #     # ignore(1)
-      
-    #   # ignore(1)
-    
-    # while currentChar == ' ' or currentChar == '\n':
-      # ignore(1)
+    if self.currentChar == '/' and self.inspectChar(1) == '/':
+      self.ignore(2)
+      while vcurrentChar != '\n': # ignore comment until '\n' appears
+        self.ignore(1)
+      self.ignore(1)
+    while self.currentChar == ' ' or self.currentChar == '\n':
+      self.ignore(1)
       
   def getToken(self):
-    tok = Token()
+    # tok = Token()
     kind = 0
     while True:
       sourcePos = SourcePosition()

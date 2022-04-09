@@ -7,7 +7,7 @@ class Token():
   # position = SourcePosition()
 
   def __init__(self, kind=0, spelling='', position = SourcePosition()):
-
+    # self.kind = kind
     if kind == Token.ID:
       currentKind = self.firstReservedWord
       searching = True
@@ -27,7 +27,7 @@ class Token():
     self.spelling = spelling
     self.position = position
 
-  def spell(kind):
+  def spell(self, kind):
     return self.keywords[kind]
 
   def toString(self):
